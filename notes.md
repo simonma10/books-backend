@@ -15,7 +15,7 @@ smar / S..1
 
 simondo_sys / SPvmYuCknfKFkO5B
 
-mongodb+srv://simondo_sys:<password>@cluster0-ebpvl.mongodb.net/test?retryWrites=true&w=majority
+mongodb+srv://simondo_sys:SPvmYuCknfKFkO5B@cluster0-ebpvl.mongodb.net/test?retryWrites=true&w=majority&useNewUrlParser=true
 
 
 const MongoClient = require('mongodb').MongoClient;

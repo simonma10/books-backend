@@ -1,8 +1,8 @@
 const hapi = require('hapi')
 const axios = require('axios')
+require('dotenv').config()
 
-const CONFIG = require('../config')
-let GOOGLE_BOOKS_API_KEY = CONFIG.BOOKS_API
+let GOOGLE_BOOKS_API_KEY = process.env.GOOGLE_BOOKS_API_KEY
 
 module.exports = {
     name: "googleBooksPlugin",
