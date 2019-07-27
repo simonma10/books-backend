@@ -5,11 +5,14 @@ const googleBooksPlugin = require('./plugins/google-books-plugin')
 const booksPlugin = require('./plugins/books-plugin')
 require('dotenv').config()
 
+const PORT = process.env.PORT || 4000
+
 const server = hapi.server({
-    port: process.env.HAPI_PORT,
+    port: PORT,
     host: process.env.HAPI_HOST,
     routes: { cors: true}
 })
+
 
 const init = async () => {
     
