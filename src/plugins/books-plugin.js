@@ -1,6 +1,4 @@
 const hapi = require('hapi')
-
-const CONFIG = require('../config')
 const Book = require('../models/Book')
 
 
