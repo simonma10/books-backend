@@ -12,8 +12,11 @@ module.exports = {
             path:'/api/v1/books',
             config: {
                 description: 'GET book by ID, title or author, or without params to get all',
+                auth: options.auth
             },
-            handler: (req, res) => { 
+            handler: async (req, res) => { 
+                const {credentials} = req.auth
+                console.log(credentials)
                 if (req.query.id){
 
                     // find by Book.id
@@ -59,7 +62,7 @@ module.exports = {
                 description: 'Update a book, by ID',
             },
             handler: (req, res) => {
-                console.log(req.payload)
+                //console.log(req.payload)
                 const {_id, title, author, year, status, priority, authors, categories, pages, description, 
                     snippet, googleBooksId, subtitle, publisher, isbn10, isbn13, date} = req.payload
 
