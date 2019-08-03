@@ -14,6 +14,7 @@ module.exports = {
           path: '/api/v1/external/google/volumes',
           config: {
             description: 'An extract of the search results from the google books volumes.list api',
+            auth: options.auth
           },
           
           handler: async function(req, res){
@@ -61,7 +62,8 @@ module.exports = {
         method: 'GET',
         path: '/api/v1/external/google/volumes/full',
         config: {
-          description: 'Full search results from google books volumes.list api',
+		  description: 'Full search results from google books volumes.list api',
+		  auth: options.auth
         },
         handler: async function(req, res){
             let q = req.query.q

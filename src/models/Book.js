@@ -16,7 +16,8 @@ const BookSchema = new Schema ({
     subtitle: String,
     publisher: String,
     isbn10: String,
-    isbn13: String
+    isbn13: String,
+    userid: String
 })
 
 module.exports = mongoose.model('Book', BookSchema)
