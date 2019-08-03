@@ -35,10 +35,9 @@ const init = async () => {
     await server.register(require('@hapi/basic'));
     server.auth.strategy('simple', 'basic', { validate });
 
-    await server.register({ plugin: googleBooksPlugin})
-    
     await server.register({ plugin: authPlugin, options: { auth: 'simple'} })
     await server.register({ plugin: booksPlugin, options: { auth: 'simple'} })
+    await server.register({ plugin: googleBooksPlugin, options: { auth: 'simple'}})
 
     await server.register({ plugin: Blipp, options: { showAuth: true } })
     server.route([
