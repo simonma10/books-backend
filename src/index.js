@@ -23,7 +23,7 @@ const validate = async (request, username, password) => {
     let credentials = null
 
     const user = await User.find({username: username})
-    if (user) {
+    if (user.length > 0) {
         isValid = await Bcrypt.compare(password, user[0].password)
         credentials = { _id: user[0]._id, username: user[0].username, role: user[0].role, active: user[0].active, email: user[0].email } 
     }
