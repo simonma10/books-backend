@@ -181,7 +181,8 @@ module.exports = {
 					description: 'Delete a user',
 				},
 				handler: async (req, res) => {
-					const {username} = req.payload
+					let id = req.query.id
+                
 					const {credentials} = req.auth
 
 					// Check is user has ADMIN role and is active
@@ -199,7 +200,7 @@ module.exports = {
 					}
 
 					// Deleting the currently authenticated user is not allowed
-					if (credentials.username === username){
+					if (credentials._id === id){
 						return JSON.stringify(
 							{
 								"statusCode": 403,
@@ -212,7 +213,7 @@ module.exports = {
 						)
 					}
 
-					return User.deleteOne({username:username})
+					return User.deleteOne({_id:id})
 				}
 			},
 
