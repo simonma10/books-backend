@@ -148,9 +148,14 @@ module.exports = {
 							}
 						)
 					}
-
-					const hash = await Bcrypt.hash(password, SALT)
-
+					let hash
+					// If password is already encrypted, do not update it.
+					if (password.startsWith("$2b$10")){
+						hash = password
+					} else {
+						hash = await Bcrypt.hash(password, SALT)
+					}
+					 
 					return User.findOneAndUpdate({username:username}, 
 						{
 							password: hash,
